@@ -2,22 +2,21 @@ package main
 
 import (
 	"context"
-	"encoding/base64"
 	"github.com/Litekube/litekube-vpn/grpc/grpc_client"
 	"github.com/Litekube/litekube-vpn/grpc/pb_gen"
 	"github.com/Litekube/litekube-vpn/utils"
-	certutil "github.com/rancher/dynamiclistener/cert"
 	"time"
 )
 
 var logger = utils.GetLogger()
+
 var client *grpc_client.GrpcClient
 
 func Init() {
 	client = &grpc_client.GrpcClient{
 		Ip:          "101.43.253.110",
 		Port:        "6440",
-		GrpcCertDir: "/Users/zhujianxing/GoLandProjects/litekube-vpn/certs/test1/",
+		GrpcCertDir: "/root/go_project/litekube-vpn-usage/certs/test/",
 		CAFile:      "ca.pem",
 		CertFile:    "client.pem",
 		KeyFile:     "client-key.pem",
@@ -60,16 +59,7 @@ func GetToken() (*pb_gen.GetTokenResponse, error) {
 	resp, err := client.C.GetToken(ctx, req)
 	logger.Info(resp)
 	logger.Info(err)
-	if err != nil {
-		return resp, err
-	}
 
-	caBytes, err := base64.StdEncoding.DecodeString(resp.GrpcCaCert)
-	certBytes, err := base64.StdEncoding.DecodeString(resp.GrpcClientCert)
-	keyBytes, err := base64.StdEncoding.DecodeString(resp.GrpcClientKey)
-	certutil.WriteCert("/Users/zhujianxing/GoLandProjects/litekube-vpn/certs/test/ca.pem", caBytes)
-	certutil.WriteCert("/Users/zhujianxing/GoLandProjects/litekube-vpn/certs/test/client.pem", certBytes)
-	certutil.WriteKey("/Users/zhujianxing/GoLandProjects/litekube-vpn/certs/test/client-key.pem", keyBytes)
 	return resp, nil
 }
 
