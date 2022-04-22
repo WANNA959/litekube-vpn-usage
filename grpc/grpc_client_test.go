@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/base64"
 	certutil "github.com/rancher/dynamiclistener/cert"
-	"os"
 	"testing"
 )
 
@@ -35,7 +34,7 @@ func TestGetToken(t *testing.T) {
 
 func TestCheckConnState(t *testing.T) {
 	Init()
-	checkResp, err := CheckConnState(os.Args[1])
+	checkResp, err := CheckConnState("a9f683a2d05b4957")
 	if err != nil {
 		logger.Errorf("fail to call CheckConnState err: %+v", err)
 		return
@@ -45,7 +44,7 @@ func TestCheckConnState(t *testing.T) {
 
 func TestUnRegister(t *testing.T) {
 	Init()
-	unRegisResp, err := UnRegister(os.Args[1])
+	unRegisResp, err := UnRegister("a9f683a2d05b4957")
 	if err != nil {
 		logger.Errorf("fail to call UnRegister err: %+v", err)
 		return

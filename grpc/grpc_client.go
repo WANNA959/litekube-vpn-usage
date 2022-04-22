@@ -5,7 +5,6 @@ import (
 	"github.com/Litekube/litekube-vpn/grpc/grpc_client"
 	"github.com/Litekube/litekube-vpn/grpc/pb_gen"
 	"github.com/Litekube/litekube-vpn/utils"
-	"time"
 )
 
 var logger = utils.GetLogger()
@@ -53,10 +52,8 @@ func main() {
 
 func GetToken() (*pb_gen.GetTokenResponse, error) {
 	req := &pb_gen.GetTokenRequest{}
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
-	defer cancel()
 
-	resp, err := client.C.GetToken(ctx, req)
+	resp, err := client.C.GetToken(context.Background(), req)
 	logger.Info(resp)
 	logger.Info(err)
 
@@ -67,10 +64,8 @@ func CheckConnState(token string) (*pb_gen.CheckConnResponse, error) {
 	req := &pb_gen.CheckConnStateRequest{
 		Token: token,
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
-	defer cancel()
 
-	resp, err := client.C.CheckConnState(ctx, req)
+	resp, err := client.C.CheckConnState(context.Background(), req)
 	logger.Info(resp)
 	logger.Info(err)
 	return resp, err
@@ -80,10 +75,8 @@ func UnRegister(token string) (*pb_gen.UnRegisterResponse, error) {
 	req := &pb_gen.UnRegisterRequest{
 		Token: token,
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
-	defer cancel()
 
-	resp, err := client.C.UnRegister(ctx, req)
+	resp, err := client.C.UnRegister(context.Background(), req)
 	logger.Info(resp)
 	logger.Info(err)
 	return resp, err
