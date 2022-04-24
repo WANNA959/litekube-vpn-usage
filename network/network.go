@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"github.com/Litekube/network-controller/config"
+	"github.com/Litekube/network-controller/network"
 	"github.com/Litekube/network-controller/utils"
-	"github.com/Litekube/network-controller/vpn"
 	"os"
 )
 
@@ -40,11 +40,11 @@ func main() {
 
 	switch cfg := icfg.(type) {
 	case config.ServerConfig:
-		vpnServer := vpn.NewServer(cfg)
-		err = vpnServer.Run()
+		server := network.NewServer(cfg)
+		err = server.Run()
 		checkerr(err)
 	case config.ClientConfig:
-		client := vpn.NewClient(cfg)
+		client := network.NewClient(cfg)
 		err := client.Run()
 		checkerr(err)
 	default:

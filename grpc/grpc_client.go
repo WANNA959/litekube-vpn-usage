@@ -34,7 +34,7 @@ func main() {
 	token := tokenResp.Token
 	logger.Infof("register token: %+v", token)
 
-	// run vpn client first, then execute two methods below
+	// run network client first, then execute two methods below
 	//checkResp, err := CheckConnState(token)
 	//if err != nil {
 	//	logger.Errorf("fail to call CheckConnState err: %+v", err)

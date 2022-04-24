@@ -23,9 +23,9 @@ func TestGetToken(t *testing.T) {
 	certutil.WriteCert("/root/go_project/network-controller-usage/certs/test1/client.pem", certBytes)
 	certutil.WriteKey("/root/go_project/network-controller-usage/certs/test1/client-key.pem", keyBytes)
 
-	caBytes, err = base64.StdEncoding.DecodeString(tokenResp.VpnCaCert)
-	certBytes, err = base64.StdEncoding.DecodeString(tokenResp.VpnClientCert)
-	keyBytes, err = base64.StdEncoding.DecodeString(tokenResp.VpnClientKey)
+	caBytes, err = base64.StdEncoding.DecodeString(tokenResp.NetworkCaCert)
+	certBytes, err = base64.StdEncoding.DecodeString(tokenResp.NetworkClientCert)
+	keyBytes, err = base64.StdEncoding.DecodeString(tokenResp.NetworkClientKey)
 	certutil.WriteCert("/root/go_project/network-controller-usage/certs/test2/ca.pem", caBytes)
 	certutil.WriteCert("/root/go_project/network-controller-usage/certs/test2/client.pem", certBytes)
 	certutil.WriteKey("/root/go_project/network-controller-usage/certs/test2/client-key.pem", keyBytes)
