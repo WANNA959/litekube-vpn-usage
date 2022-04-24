@@ -2,9 +2,9 @@ package main
 
 import (
 	"context"
-	"github.com/Litekube/litekube-vpn/grpc/grpc_client"
-	"github.com/Litekube/litekube-vpn/grpc/pb_gen"
-	"github.com/Litekube/litekube-vpn/utils"
+	"github.com/Litekube/network-controller/grpc/grpc_client"
+	"github.com/Litekube/network-controller/grpc/pb_gen"
+	"github.com/Litekube/network-controller/utils"
 )
 
 var logger = utils.GetLogger()
@@ -15,7 +15,7 @@ func Init() {
 	client = &grpc_client.GrpcClient{
 		Ip:          "101.43.253.110",
 		Port:        "6440",
-		GrpcCertDir: "/root/go_project/litekube-vpn-usage/certs/test/",
+		GrpcCertDir: "/root/go_project/network-controller-usage/certs/test/",
 		CAFile:      "ca.pem",
 		CertFile:    "client.pem",
 		KeyFile:     "client-key.pem",

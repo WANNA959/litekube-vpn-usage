@@ -19,16 +19,16 @@ func TestGetToken(t *testing.T) {
 	caBytes, err := base64.StdEncoding.DecodeString(tokenResp.GrpcCaCert)
 	certBytes, err := base64.StdEncoding.DecodeString(tokenResp.GrpcClientCert)
 	keyBytes, err := base64.StdEncoding.DecodeString(tokenResp.GrpcClientKey)
-	certutil.WriteCert("/root/go_project/litekube-vpn-usage/certs/test1/ca.pem", caBytes)
-	certutil.WriteCert("/root/go_project/litekube-vpn-usage/certs/test1/client.pem", certBytes)
-	certutil.WriteKey("/root/go_project/litekube-vpn-usage/certs/test1/client-key.pem", keyBytes)
+	certutil.WriteCert("/root/go_project/network-controller-usage/certs/test1/ca.pem", caBytes)
+	certutil.WriteCert("/root/go_project/network-controller-usage/certs/test1/client.pem", certBytes)
+	certutil.WriteKey("/root/go_project/network-controller-usage/certs/test1/client-key.pem", keyBytes)
 
 	caBytes, err = base64.StdEncoding.DecodeString(tokenResp.VpnCaCert)
 	certBytes, err = base64.StdEncoding.DecodeString(tokenResp.VpnClientCert)
 	keyBytes, err = base64.StdEncoding.DecodeString(tokenResp.VpnClientKey)
-	certutil.WriteCert("/root/go_project/litekube-vpn-usage/certs/test2/ca.pem", caBytes)
-	certutil.WriteCert("/root/go_project/litekube-vpn-usage/certs/test2/client.pem", certBytes)
-	certutil.WriteKey("/root/go_project/litekube-vpn-usage/certs/test2/client-key.pem", keyBytes)
+	certutil.WriteCert("/root/go_project/network-controller-usage/certs/test2/ca.pem", caBytes)
+	certutil.WriteCert("/root/go_project/network-controller-usage/certs/test2/client.pem", certBytes)
+	certutil.WriteKey("/root/go_project/network-controller-usage/certs/test2/client-key.pem", keyBytes)
 
 }
 

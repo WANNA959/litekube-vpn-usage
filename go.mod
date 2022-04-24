@@ -1,9 +1,9 @@
-module litekube-vpn-usage
+module network-controller-usage
 
 go 1.17
 
 require (
-	github.com/Litekube/litekube-vpn v0.0.0-20220422101617-a49e220128a8
+	github.com/Litekube/network-controller v0.0.0-20220424125111-991552b9b0f8
 	github.com/rancher/dynamiclistener v0.3.1
 )
 

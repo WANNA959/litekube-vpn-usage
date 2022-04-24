@@ -2,9 +2,9 @@ package main
 
 import (
 	"flag"
-	"github.com/Litekube/litekube-vpn/config"
-	"github.com/Litekube/litekube-vpn/utils"
-	"github.com/Litekube/litekube-vpn/vpn"
+	"github.com/Litekube/network-controller/config"
+	"github.com/Litekube/network-controller/utils"
+	"github.com/Litekube/network-controller/vpn"
 	"os"
 )
 
