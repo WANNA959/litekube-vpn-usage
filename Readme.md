@@ -26,6 +26,9 @@ go run network/network.go client.yml
 
 ```shell
 cd grpc
+# get bootstrap token
+go test -v -run TestGetBootstrapToken
+
 # 注册 得到token=a9f683a2d05b4957，以及返回的grpc+network证书
 go test -v -run TestGetToken
 
@@ -36,14 +39,17 @@ go test -v -run TestCheckConnState
 go test -v -run TestUnRegister 
 ```
 
-## 一次完成执行流程
+## 一次完整执行流程
 
 ```shell
 # 启动network & grpc server
 go run network/network.go server.yml
 
-# 注册 得到token=a9f683a2d05b4957，以及返回的grpc+network证书
 cd grpc
+# get bootstrap token
+go test -v -run TestGetBootstrapToken
+
+# 注册 得到token=a9f683a2d05b4957，以及返回的grpc+network证书
 go test -v -run TestGetToken
 
 # 根据token修改client.yml，启动client

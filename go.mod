@@ -3,7 +3,7 @@ module network-controller-usage
 go 1.17
 
 require (
-	github.com/Litekube/network-controller v0.0.0-20220424141506-5c9148cd5f66
+	github.com/Litekube/network-controller v0.0.0-20220427122036-7e3946a3132d
 	github.com/rancher/dynamiclistener v0.3.1
 )
 

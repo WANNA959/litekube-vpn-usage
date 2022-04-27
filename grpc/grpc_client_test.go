@@ -6,9 +6,19 @@ import (
 	"testing"
 )
 
+func TestGetBootstrapToken(t *testing.T) {
+	Init()
+	resp, err := GetBootstrapToken()
+	if err != nil {
+		logger.Errorf("fail to call GetBootstrapToken err: %+v", err)
+		return
+	}
+	logger.Infof("get bootstrap token:%+v", resp.BootStrapToken)
+}
+
 func TestGetToken(t *testing.T) {
 	Init()
-	tokenResp, err := GetToken()
+	tokenResp, err := GetToken("37714d21914a423f")
 	if err != nil {
 		logger.Errorf("fail to call GetToken err: %+v", err)
 		return

@@ -26,32 +26,24 @@ func Init() {
 
 func main() {
 	Init()
-	tokenResp, err := GetToken()
-	if err != nil {
-		logger.Errorf("fail to call GetToken err: %+v", err)
-		return
-	}
-	token := tokenResp.Token
-	logger.Infof("register token: %+v", token)
-
-	// run network client first, then execute two methods below
-	//checkResp, err := CheckConnState(token)
-	//if err != nil {
-	//	logger.Errorf("fail to call CheckConnState err: %+v", err)
-	//	return
-	//}
-	//logger.Info("get bind ip:%+s, conn state:%+v", checkResp.BindIp, checkResp.ConnState)
-	//
-	//unRegisResp, err := UnRegister(token)
-	//if err != nil {
-	//	logger.Errorf("fail to call UnRegister err: %+v", err)
-	//	return
-	//}
-	//logger.Infof("if succeed to unRegister: %+v", unRegisResp.Result)
 }
 
-func GetToken() (*pb_gen.GetTokenResponse, error) {
-	req := &pb_gen.GetTokenRequest{}
+func GetBootstrapToken() (*pb_gen.GetBootStrapTokenResponse, error) {
+	req := &pb_gen.GetBootStrapTokenRequest{
+		ExpireTime: 3,
+	}
+
+	resp, err := client.C.GetBootStrapToken(context.Background(), req)
+	logger.Info(resp)
+	logger.Info(err)
+
+	return resp, nil
+}
+
+func GetToken(bootstrapToken string) (*pb_gen.GetTokenResponse, error) {
+	req := &pb_gen.GetTokenRequest{
+		BootStrapToken: bootstrapToken,
+	}
 
 	resp, err := client.C.GetToken(context.Background(), req)
 	logger.Info(resp)
