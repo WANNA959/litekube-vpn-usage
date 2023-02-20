@@ -3,7 +3,6 @@ module network-controller-usage
 go 1.17
 
 require (
-	github.com/Litekube/network-controller v0.0.0-20220427122036-7e3946a3132d
 	github.com/rancher/dynamiclistener v0.3.1
 )
 
@@ -18,7 +17,7 @@ require (
 	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.6.0 // indirect
 	github.com/songgao/water v0.0.0-20200317203138-2b4b6d7c09d8 // indirect
-	golang.org/x/net v0.0.0-20220412020605-290c469a71a5 // indirect
+	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/genproto v0.0.0-20210831024726-fe130286e0e2 // indirect
